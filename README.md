@@ -1,6 +1,5 @@
 # Android网络请求数据模拟
 
-
 ### 功能介绍：
 1、支持POST、GET、PUT、DELETE、HEAD、PATCH、OPTIONS、HTTP
 
@@ -47,4 +46,4 @@
 
 ###### 联系方式 wshychbydh@gmail.com
 
-[![](https://jitpack.io/v/wshychbydh/photo.svg)](https://jitpack.io/#wshychbydh/photo)
+[![](https://jitpack.io/v/wshychbydh/mock.svg)](https://jitpack.io/#wshychbydh/mock)
