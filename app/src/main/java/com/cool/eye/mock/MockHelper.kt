@@ -2,15 +2,17 @@ package com.cool.eye.mock
 
 import retrofit2.http.*
 import java.lang.reflect.Method
+import java.util.concurrent.CopyOnWriteArraySet
 
 /**
  * Created by ycb on 6/18/21
  */
 object MockHelper {
 
+  @Volatile
   internal var mockAble: Boolean = false
 
-  internal val mockApis: HashSet<MockApi> by lazy { hashSetOf() }
+  internal val mockApis: CopyOnWriteArraySet<MockApi> by lazy { CopyOnWriteArraySet() }
 
   fun enableMock(mockAble: Boolean) {
     this.mockAble = mockAble
@@ -36,6 +38,10 @@ object MockHelper {
    * @param [source] data source class
    */
   fun addMockDataSource(source: Any) {
+    if (source is MockApi) {
+      if (source.isValid()) addMockApi(source)
+      return
+    }
     source.javaClass.declaredMethods.forEach {
       if (hasHttpAnnotation(it)) {
         val mockApi = parseMethod(source, it)

@@ -23,4 +23,12 @@ data class MockApi(
   override fun hashCode(): Int {
     return method.hashCode() + url.hashCode()
   }
+
+  override fun equals(other: Any?): Boolean {
+    if (other == null || other !is MockApi) return false
+    return method == other.method
+        && url == other.url
+        && response == other.response
+        && delay == other.delay
+  }
 }

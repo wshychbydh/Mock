@@ -26,7 +26,7 @@ class MockInterceptor : Interceptor {
             .request(request)
             .protocol(Protocol.HTTP_1_1)
             .code(200)
-            .message("Mock api")
+            .message("Mock Api")
             .body("{}".toResponseBody())
             .build()
       } else {
