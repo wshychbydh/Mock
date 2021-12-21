@@ -126,11 +126,14 @@
 ```kotlin
     //添加模拟数据源，该类中所有符合条件的接口都会被模拟
     //注：模拟数据源中的设置的url和method必须同接口定义一致才能匹配成功。
+    //若匹配到定义了多个url和method一致的方法时，只解析第一个方法。(反编译的declaredMethods顺序，非定义顺序)
     MockHelper.addMockDataSource(MockImpl)
     //或添加单个接口模拟
     MockHelper.addMockApi(MockApi) 
     //开启数据模拟
     MockHelper.enableMock(true)
+    //关闭mock，并清除模拟数据
+    MockHelper.release()
 ```
  
 **Demo地址：(https://github.com/wshychbydh/SampleDemo)**    

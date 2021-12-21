@@ -69,7 +69,12 @@ object MockHelper {
     val mock = method.getAnnotation(MOCK::class.java)
     method.isAccessible = true
     val response = method.invoke(target).toString()
-    MockApi(method = mock.method.toUpperCase(), url = mock.url, response = response)
+    MockApi(
+        method = mock.method.toUpperCase(),
+        url = mock.url,
+        response = response,
+        delay = mock.delay
+    )
   } catch (ignore: Exception) {
     null
   }

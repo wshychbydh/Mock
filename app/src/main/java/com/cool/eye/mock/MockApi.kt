@@ -28,7 +28,5 @@ data class MockApi(
     if (other == null || other !is MockApi) return false
     return method == other.method
         && url == other.url
-        && response == other.response
-        && delay == other.delay
   }
 }
